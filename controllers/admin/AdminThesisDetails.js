@@ -28,7 +28,11 @@ router.get('/AdminGroupDetails/:id', function(req, res){
 	
 	thesisModel.getGroupData(req.params.id, function(result){
 		//console.log(result);
-		res.render('admin/AdminGroupDetails', {groupData: result});
+		if(result.length > 0){
+			res.render('admin/AdminGroupDetails', {groupData: result});
+		}else{
+			res.render('admin/AdminGroupDetails', {groupData: []});
+		}
 	});
 });
 

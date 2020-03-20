@@ -42,7 +42,7 @@ router.post('/', [
 	
     }else{
     	if (req.body.newpass != req.body.cnewpass) {
-    		//console.log(ReverseMd5(req.cookies['token']));
+    		console.log(ReverseMd5(req.cookies['token']));
     		res.render('admin/AdminChangePassword', {msg1:'Confirm Password not matched!!!', error:errors.mapped()});
     	}else{
     		userModel.getPass(req.cookies['username'], function(result){

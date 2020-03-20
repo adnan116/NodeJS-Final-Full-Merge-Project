@@ -1,6 +1,4 @@
 //declaration
-
-//admin
 var express 		= require('express');
 var path 			= require('path');
 var bodyParser 		= require('body-parser');
@@ -33,46 +31,13 @@ var typeDetails		= require('./controllers/admin/AdminTypeDetails');
 var thesisDetails		= require('./controllers/admin/AdminThesisDetails');
 
 
-//faculty
-var facultyHome 				= require('./controllers/faculty/home');
-var facultyProfile 				= require('./controllers/faculty/profile');
-var facultyChngPass 			= require('./controllers/faculty/changePassword');
-var facultyStudentApproval 		= require('./controllers/faculty/studentApproval');
-var facultyStudentDetails 		= require('./controllers/faculty/studentDetails');
-var facultyStudentReg 			= require('./controllers/faculty/studentReg');
-var facultyTopicAdd 			= require('./controllers/faculty/topicAdd');
-var facultyViewTopic 			= require('./controllers/faculty/viewTopic');
-var facultyFileUpdate 			= require('./controllers/faculty/uploadFile');
-var facultyProgressUpdate 		= require('./controllers/faculty/progressUpdate');
-
-
-//student
-var studentHome 	= require('./controllers/student/home');
-var studentSelfReg 		= require('./controllers/student/reg');
-var studentCngPass 	= require('./controllers/student/changePassword');
-var studentUpload 	= require('./controllers/student/upload');
-var studentDownload = require('./controllers/student/download');
-var availableTopics = require('./controllers/student/topics');
-var studentResearch = require('./controllers/student/myResearch');
-var studentGroup = require('./controllers/student/group');
-//var studentRegInfo 		= require('./controllers/student/regInfo');
-
-
 
 var app = express();
-
-
-
 
 //configuration
 app.set('view engine', 'ejs');
 
-
-
-
 //middleware
-
-//admin
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: false}));
@@ -104,39 +69,12 @@ app.use('/AdminTypeDetails',typeDetails);
 app.use('/AdminThesisDetails',thesisDetails);
 
 
-//faculty
-app.use('/home', facultyHome);
-app.use('/profile', facultyProfile);
-app.use('/changePassword', facultyChngPass);
-app.use('/studentDetails', facultyStudentDetails);
-app.use('/studentApproval', facultyStudentApproval);
-app.use('/studentReg', facultyStudentReg);
-app.use('/topicAdd', facultyTopicAdd);
-app.use('/uploadFiles', facultyFileUpdate);
-app.use('/viewTopic', facultyViewTopic);
-app.use('/progressUpdate', facultyProgressUpdate);
-
-
-//student
-app.use('/studentHome', studentHome);
-app.use('/studentSelfReg', studentSelfReg);
-app.use('/studentCngPass', studentCngPass);
-app.use('/studentUpload', studentUpload);
-app.use('/studentDownload', studentDownload);
-app.use('/studentTopics', availableTopics);
-app.use('/studentResearch', studentResearch);
-app.use('/studentGroup', studentGroup);
-//app.use('/studentRegInfo', studentRegInfo);
-
-
 
 
 //routes
 app.get('/', function(req, res){
 	res.render('index');
 });
-
-
 
 
 

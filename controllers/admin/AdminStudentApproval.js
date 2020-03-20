@@ -101,10 +101,33 @@ router.post('/AdminStudentDeclineCon/:id', function(req, res){
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 router.get('/:file',function(req,res){
 	
 	var file = req.params.file;
-	var fileLocation = path.join('./public/upload/verification',file);
+	var fileLocation = path.join('./public/upload/student',file);
 	console.log(fileLocation);
 	res.download(fileLocation, file); 
 		
