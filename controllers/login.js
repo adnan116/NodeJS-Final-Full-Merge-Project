@@ -34,10 +34,7 @@ router.post('/', function(req, res){
 			if (user.role) {
 				userModel.validate(user,function(status) {
 					if (status.status && user.role=='faculty') {
-						console.log(status);
-						res.cookie('username', req.body.uname);
-						res.cookie('token', md5(md5(req.body.password)));
-						res.redirect('/home');
+						res.send("Faculty");
 					}
 					else if (status.status && user.role=='student') {
 						res.cookie('username', req.body.uname);
@@ -50,6 +47,8 @@ router.post('/', function(req, res){
 					else if (status.status==1) {
 						res.cookie('username', req.body.uname);
 						res.cookie('token', md5(md5(req.body.password)));
+						//res.cookie('date', sysDate);
+						//res.cookie('time', sysTime);
 						res.redirect('/AdminHome');
 					}
 					else{

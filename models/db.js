@@ -3,7 +3,7 @@ var mysql      	= require('mysql');
 var getConnection = function(callback){
 
 	var connection = mysql.createConnection({
-	  host     : 'localhost',
+	  host     : '127.0.0.1',
 	  user     : 'root',
 	  password : '',
 	  database : 'research'
@@ -72,4 +72,3 @@ module.exports ={
 		});
 	}
 }
-
